@@ -2,17 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <META NAME="VIEWPORT"
-content="width=device-width, initial-scale1.0">
-    <title>Choose Navigation App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Location - Navigation</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-btn {
+            padding: 1rem 2rem;
+            background: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            background: #ff9478;
+            transform: translateY(-5px);
+        }
+
+        .nav-btn:active {
+            transform: translateY(2px);
+        }
+    </style>
 </head>
 <body>
-    <h1>Select your navigation app</h1>
-    <a href="https://www.google.com/maps?q=3.16141,101.71398" target="_blank">
-        <button>Open in Google Maps</button>
-    </a>
-    <a href="waze://?11=3.16141,101.71398&navigate=yes" target="_blank">
-        <button>Open in Wazr</button>
-    </a>
-</body>    
+    <div class="container">
+        <h1>Welcome to Our Wedding!</h1>
+        <p>Select your preferred navigation app to find the wedding location.</p>
+        
+        <div class="btn-container">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Wedding+Location+Coordinates" 
+               target="_blank" class="nav-btn">Google Maps</a>
+            <a href="https://waze.com/ul?ll=Wedding+Location+Coordinates&navigate=yes" 
+               target="_blank" class="nav-btn">Waze</a>
+        </div>
+    </div>
+</body>
 </html>
