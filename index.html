@@ -14,31 +14,36 @@
         
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            background: linear-gradient(135deg, #F9F5F2 0%, #D3CCC9 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: #fff;
+            color: #5B5755;
+            overflow: hidden;
+            position: relative;
         }
 
         .container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(249, 245, 242, 0.8);
             border-radius: 15px;
             padding: 2rem;
             box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
+            z-index: 1;
         }
 
         h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
+            color: #5B5755;
         }
 
         p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
+            color: #706C6A;
         }
 
         .btn-container {
@@ -49,24 +54,103 @@
 
         .nav-btn {
             padding: 1rem 2rem;
-            background: #ff6f61;
+            background: #D3CCC9;
             border: none;
             border-radius: 10px;
             font-size: 1.1rem;
             font-weight: bold;
-            color: #fff;
+            color: #5B5755;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
         }
 
         .nav-btn:hover {
-            background: #ff9478;
+            background: #A69D98;
             transform: translateY(-5px);
         }
 
         .nav-btn:active {
             transform: translateY(2px);
+        }
+
+        /* Snowflake styling */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background-color: #545454;
+            border-radius: 50%;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        @keyframes drift {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(15px);
+            }
+        }
+
+        /* Snow container */
+        .snow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Snowflake animations */
+        .snowflake {
+            animation: fall 15s linear infinite, drift 5s ease-in-out infinite;
+        }
+
+        /* Randomize animation delays, speeds, and positions */
+        .snowflake:nth-child(odd) {
+            animation-duration: 20s;
+            animation-delay: 0s;
+            left: 10%;
+        }
+
+        .snowflake:nth-child(even) {
+            animation-duration: 25s;
+            animation-delay: 5s;
+            left: 40%;
+        }
+
+        .snowflake:nth-child(3n) {
+            animation-duration: 30s;
+            animation-delay: 10s;
+            left: 70%;
+        }
+
+        .snowflake:nth-child(4n) {
+            animation-duration: 18s;
+            animation-delay: 7s;
+            left: 25%;
+        }
+
+        .snowflake:nth-child(5n) {
+            animation-duration: 22s;
+            animation-delay: 3s;
+            left: 55%;
+        }
+
+        .snowflake:nth-child(6n) {
+            animation-duration: 28s;
+            animation-delay: 8s;
+            left: 85%;
         }
     </style>
 </head>
@@ -78,9 +162,24 @@
         <div class="btn-container">
             <a href="https://maps.app.goo.gl/hnXz7cFpScLgDwp49?g_st=ic" 
                target="_blank" class="nav-btn">Google Maps</a>
-            <a href="hhttps://waze.com/ul/hw283fx9b6" 
+            <a href="hwaze://?ll=3.161376,101.71398163&navigate=yes" 
                target="_blank" class="nav-btn">Waze</a>
         </div>
+    </div>
+
+    <!-- Snow container to hold the snowflakes -->
+    <div class="snow-container">
+        <!-- Snowflakes -->
+        <div class="snowflake" style="width: 8px; height: 8px;"></div>
+        <div class="snowflake" style="width: 10px; height: 10px;"></div>
+        <div class="snowflake" style="width: 12px; height: 12px;"></div>
+        <div class="snowflake" style="width: 15px; height: 15px;"></div>
+        <div class="snowflake" style="width: 8px; height: 8px;"></div>
+        <div class="snowflake" style="width: 11px; height: 11px;"></div>
+        <div class="snowflake" style="width: 9px; height: 9px;"></div>
+        <div class="snowflake" style="width: 13px; height: 13px;"></div>
+        <div class="snowflake" style="width: 10px; height: 10px;"></div>
+        <div class="snowflake" style="width: 7px; height: 7px;"></div>
     </div>
 </body>
 </html>
