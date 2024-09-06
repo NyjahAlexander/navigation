@@ -4,7 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Linking CSS -->
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: #f9f3f3;
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); /* Light texture */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #5b5755;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(15px);
+            z-index: 1;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #b39984;
+        }
+
+        p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: #7d6e65;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-btn {
+            padding: 1rem 2rem;
+            background: #e3ccc9;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: 'Cormorant Garamond', serif;
+            color: #5b5755;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            background: #d3b7b3;
+            transform: translateY(-3px);
+        }
+
+        .nav-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Snowflake styling */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background-color: #d3b7b3;
+            border-radius: 50%;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        @keyframes drift {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(15px);
+            }
+        }
+
+        .snow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -20,6 +131,32 @@
     <!-- Snow container to hold the snowflakes -->
     <div class="snow-container"></div>
 
-    <script src="script.js"></script> <!-- Linking JavaScript -->
+    <script>
+        // Snowflake generation
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            
+            const size = Math.random() * 8 + 7; // Snowflake size between 7px and 15px
+            snowflake.style.width = `${size}px`;
+            snowflake.style.height = `${size}px`;
+
+            // Set random horizontal start position
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            
+            document.querySelector('.snow-container').appendChild(snowflake);
+
+            // Snowflake fall speed
+            snowflake.style.animation = `fall ${Math.random() * 10 + 10}s linear infinite, drift ${Math.random() * 5 + 5}s ease-in-out infinite`;
+            
+            // Remove the snowflake once it falls
+            snowflake.addEventListener('animationend', () => {
+                snowflake.remove();
+            });
+        }
+
+        // Generate snowflakes at intervals
+        setInterval(createSnowflake, 300);
+    </script>
 </body>
 </html>
