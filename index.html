@@ -29,39 +29,41 @@
             text-align: center;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 25px;
-            padding: 3rem;
+            padding: 2rem;
             box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
             z-index: 1;
-            max-width: 700px;
+            max-width: 90%;
             margin: auto;
+            width: 600px;
         }
 
         h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: 4rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             color: #8e735b;
         }
 
         p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
             color: #6f5e4f;
         }
 
         .btn-container {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
         }
 
         .nav-btn {
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.5rem;
             background: #d4b8a2;
             border: none;
             border-radius: 15px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             font-family: 'Playfair Display', serif;
             color: #4a3c31;
@@ -115,17 +117,38 @@
             pointer-events: none;
             z-index: 0;
         }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            .nav-btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>We can't wait to celebrate with you!</h1>
+        <h1>You're Invited</h1>
         <p>We would be honored to have you join us as we celebrate our special day. Please select your preferred navigation app to find the wedding location.</p>
         
         <div class="btn-container">
             <a href="https://maps.app.goo.gl/hnXz7cFpScLgDwp49?g_st=ic" target="_blank" class="nav-btn">Google Maps</a>
-            <a href=" https://waze.com/ul?ll=3.161376,101.71398163&navigate=yes" target="_blank" class="nav-btn">Waze</a>
+            <a href="https://embed.waze.com/iframe?zoom=16&lat=3.161399&lon=101.713938&ct=livemap" target="_blank" class="nav-btn">Waze</a>
         </div>
     </div>
 
