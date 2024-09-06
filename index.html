@@ -1,97 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Wedding Invitation</title>
-   <style>
-       /* General Reset */
-       * {
-           margin: 0;
-           padding: 0;
-           box-sizing: border-box;
-       }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-       body {
-           font-family: 'Dancing Script', cursive; /* Updated romantic font */
-           background: #f7eaea; /* Soft background color */
-           background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); /* Light texture */
-           display: flex;
-           justify-content: center;
-           align-items: center;
-           height: 100vh;
-           color: #5b5755;
-           overflow: hidden;
-           position: relative;
-       }
+        body {
+            font-family: 'Playfair Display', serif;
+            background: url('https://www.transparenttextures.com/patterns/white-wall.png'), linear-gradient(135deg, #f0e8e0 0%, #d1bba9 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #4a3c31;
+            overflow: hidden;
+            position: relative;
+            background-size: cover, cover;
+        }
 
-       .container {
-           text-align: center;
-           background: rgba(255, 255, 255, 0.9);
-           border-radius: 20px;
-           padding: 3rem;
-           box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
-           backdrop-filter: blur(15px);
-           z-index: 1;
-           max-width: 600px;
-           margin: auto;
-       }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            z-index: 1;
+            max-width: 700px;
+            margin: auto;
+        }
 
-       h1 {
-           font-family: 'Great Vibes', cursive; /* Elegant font */
-           font-size: 4rem;
-           margin-bottom: 1rem;
-           color: #b39984;
-       }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #8e735b;
+        }
 
-       p {
-           font-size: 1.3rem;
-           margin-bottom: 2.5rem;
-           color: #7d6e65;
-       }
+        p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #6f5e4f;
+        }
 
-       .btn-container {
-           display: flex;
-           justify-content: center;
-           gap: 2rem;
-       }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
 
-       .nav-btn {
-           padding: 1rem 2rem;
-           background: #e3ccc9;
-           border: none;
-           border-radius: 12px;
-           font-size: 1.1rem;
-           font-weight: bold;
-           font-family: 'Dancing Script', cursive; /* Updated font */
-           color: #5b5755;
-           cursor: pointer;
-           transition: all 0.3s ease;
-           text-decoration: none;
-       }
+        .nav-btn {
+            padding: 1rem 2rem;
+            background: #d4b8a2;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            color: #4a3c31;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
 
-       .nav-btn:hover {
-           background: #d3b7b3;
-           transform: translateY(-3px);
-       }
+        .nav-btn:hover {
+            background: #bfa59f;
+            transform: translateY(-3px);
+        }
 
-       .nav-btn:active {
-           transform: translateY(1px);
-       }
-   </style>
-   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet"> <!-- Added romantic fonts -->
+        .nav-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Snowflake styling */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            opacity: 0.9;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        @keyframes drift {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(10px);
+            }
+        }
+
+        .snow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
-   <div class="container">
-       <h1>You're Invited</h1>
-       <p>We would be honored to have you join us as we celebrate our special day. Please select your preferred navigation app to find the wedding location.</p>
+    <div class="container">
+        <h1>We can't wait to celebrate with you!</h1>
+        <p>We would be honored to have you join us as we celebrate our special day. Please select your preferred navigation app to find the wedding location.</p>
+        
+        <div class="btn-container">
+            <a href="https://maps.app.goo.gl/hnXz7cFpScLgDwp49?g_st=ic" target="_blank" class="nav-btn">Google Maps</a>
+            <a href="https://embed.waze.com/iframe?zoom=16&lat=3.161399&lon=101.713938&ct=livemap" target="_blank" class="nav-btn">Waze</a>
+        </div>
+    </div>
 
-       <div class="btn-container">
-           <a href="https://maps.app.goo.gl/hnXz7cFpScLgDwp49?g_st=ic" 
-              target="_blank" class="nav-btn">Google Maps</a>
-           <a href="https://embed.waze.com/iframe?zoom=16&lat=3.161399&lon=101.713938&ct=livemap" 
-              target="_blank" class="nav-btn">Waze</a>
-       </div>
-   </div>
+    <!-- Snow container to hold the snowflakes -->
+    <div class="snow-container"></div>
+
+    <script>
+        // Snowflake generation
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            
+            const size = Math.random() * 10 + 5; // Snowflake size between 5px and 15px
+            snowflake.style.width = `${size}px`;
+            snowflake.style.height = `${size}px`;
+
+            // Set random horizontal start position
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            
+            document.querySelector('.snow-container').appendChild(snowflake);
+
+            // Snowflake fall speed
+            snowflake.style.animation = `fall ${Math.random() * 15 + 10}s linear infinite, drift ${Math.random() * 5 + 5}s ease-in-out infinite`;
+            
+            // Remove the snowflake once it falls
+            snowflake.addEventListener('animationend', () => {
+                snowflake.remove();
+            });
+        }
+
+        // Generate snowflakes at intervals
+        setInterval(createSnowflake, 300);
+    </script>
 </body>
 </html>
